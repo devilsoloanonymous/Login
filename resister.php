@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = htmlspecialchars($_POST['password']);
 
     // File path
-    $filePath = 'data/registration_data.txt';
+    $filePath = __DIR__ . '/data/registration_data.txt';
 
     // Create directory if it doesn't exist
     if (!is_dir('data')) {
