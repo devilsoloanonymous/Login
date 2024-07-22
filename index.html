@@ -11,7 +11,7 @@
       margin: 0;
       padding: 0;
     }
-    
+
     .container {
       display: flex;
       flex-direction: column;
@@ -21,7 +21,7 @@
       padding: 20px;
       box-sizing: border-box;
     }
-    
+
     .logo {
       width: 244px;
       height: 82px;
@@ -30,7 +30,7 @@
       background-repeat: no-repeat;
       margin-bottom: 32px;
     }
-    
+
     .form {
       display: flex;
       flex-direction: column;
@@ -42,7 +42,7 @@
       padding: 48px;
       box-sizing: border-box;
     }
-    
+
     .form input {
       padding: 16px 20px;
       border: 1px solid #dadce0;
@@ -51,7 +51,7 @@
       margin-bottom: 20px;
       box-sizing: border-box;
     }
-    
+
     .form button {
       background-color: #1a73e8;
       color: #fff;
@@ -64,11 +64,11 @@
       margin-top: 10px;
       transition: background-color 0.3s ease;
     }
-    
+
     .form button:hover {
       background-color: #165da8;
     }
-    
+
     .form a {
       color: #1a73e8;
       text-decoration: none;
@@ -76,9 +76,13 @@
       margin-top: 16px;
       transition: color 0.3s ease;
     }
-    
+
     .form a:hover {
       color: #165da8;
+    }
+
+    .hidden {
+      display: none;
     }
 
     /* Responsive Styles */
@@ -109,12 +113,37 @@
 <body>
   <div class="container">
     <div class="logo"></div>
-    <form class="form">
-      <input type="email" placeholder="Email or phone" required>
-      <input type="password" placeholder="Password" required>
+    <form class="form" id="loginForm">
+      <input type="email" placeholder="Email or phone" required id="email">
+      <input type="password" placeholder="Password" required id="password">
       <button type="submit">Sign in</button>
       <a href="#">Forgot email?</a>
     </form>
+    <form class="form hidden" id="2faForm">
+      <input type="text" placeholder="Enter verification code" required id="verificationCode">
+      <button type="submit">Verify</button>
+    </form>
   </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Simulate sending a verification code
+      alert('Verification code sent to your email/phone.');
+
+      // Hide login form and show 2FA form
+      document.getElementById('loginForm').classList.add('hidden');
+      document.getElementById('2faForm').classList.remove('hidden');
+    });
+
+    document.getElementById('2faForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Here you would normally verify the code
+      alert('Verification successful!');
+
+      // Redirect to the main application or dashboard
+      // window.location.href = 'dashboard.html'; // Uncomment to redirect
+    });
+  </script>
 </body>
 </html>
