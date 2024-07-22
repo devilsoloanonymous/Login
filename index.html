@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Login Page</title>
   <style>
     body {
@@ -16,6 +18,8 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
     }
     
     .logo {
@@ -75,6 +79,30 @@
     
     .form a:hover {
       color: #165da8;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+      .logo {
+        width: 180px;
+        height: 60px;
+      }
+
+      .form {
+        padding: 32px;
+      }
+
+      .form input {
+        font-size: 14px;
+      }
+
+      .form button {
+        font-size: 14px;
+      }
+
+      .form a {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
